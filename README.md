@@ -1,2 +1,3 @@
 # app-equipo-futbol
-Fundamentos Tyscript e implentación con firebase.
+Fundamentos Tyscript 
+Proyetco angular e implentación con firebase.
