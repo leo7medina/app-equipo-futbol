@@ -1,0 +1,38 @@
+<section>
+  <h1>My Team</h1>
+  <div class="container">
+    <button type="button" class="btn btn-info" (click)="newTeam()"> New Team</button>
+  </div>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th *ngFor="let header of tableHeaders">{{header}}</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr *ngFor="let team of (teams$ | async)">
+          <td>{{team.name}}</td>
+          <td>{{team.country}}</td>
+          <td><p *ngFor="let player of team.players">{{player.name}}</p></td>
+          <td>
+            <button type="button" class="btn btn-default" title="Edit Team" (click)="editTeam(team)">
+              <span class="fa fa-pencil"></span>
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-default" title="Delete Team" (click)="deleteTeam(team)">
+              <span class="fa fa-trash"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<app-team-dialog *ngIf="showModal" [team]="selectedTeam" (closeDialog)="closeDialog()"></app-team-dialog>

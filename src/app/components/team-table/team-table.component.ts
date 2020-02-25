@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Team} from '../interfaces/team';
-import {TeamService, TeamTableHeadres} from '../services/team.service';
+import {Team} from '../../interfaces/team';
+import {TeamService, TeamTableHeadres} from '../../services/team.service';
 import {take} from 'rxjs/operators';
-import {Countries} from '../interfaces/player';
+import {Countries} from '../../interfaces/player';
 
 @Component({
   selector: 'app-team-table',
@@ -14,6 +14,8 @@ export class TeamTableComponent implements OnInit {
 
   public teams$: Observable<Team[]>;
   public tableHeaders = TeamTableHeadres;
+  public showModal = false;
+  public selectedTeam: Team;
 
   constructor(private teamService: TeamService) { }
 
@@ -29,6 +31,31 @@ export class TeamTableComponent implements OnInit {
         this.teamService.addTeam(team);
       }
     });
+  }
+
+  newTeam() {
+    this.showModal = true;
+    this.selectedTeam = null;
+    setTimeout(() => {
+      window.location.replace('#open-modalTeam');
+    });
+  }
+
+  editTeam(team: Team) {
+    this.selectedTeam = { ...team };
+    this.showModal = true;
+    setTimeout( () => {
+      window.location.replace('#open-modalTeam');
+    });
+  }
+
+  deleteTeam(team: Team) {
+    this.teamService.deleteTeam(team.$key);
+  }
+
+  closeDialog() {
+    this.showModal = false;
+    this.selectedTeam = null;
   }
 
 }

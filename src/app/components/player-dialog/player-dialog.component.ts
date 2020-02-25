@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Countries, Player, SquadNumber} from '../interfaces/player';
-import {PlayerService} from '../services/player-service';
-import {TeamService} from '../services/team.service';
+import {Countries, Player, SquadNumber} from '../../interfaces/player';
+import {PlayerService} from '../../services/player-service';
+import {TeamService} from '../../services/team.service';
 import {take} from 'rxjs/operators';
 import {NgForm} from '@angular/forms';
 

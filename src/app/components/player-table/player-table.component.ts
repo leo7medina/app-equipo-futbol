@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Team} from '../interfaces/team';
-import {Player} from '../interfaces/player';
-import {PlayerService, PlayerTableHeader} from '../services/player-service';
+import {Team} from '../../interfaces/team';
+import {Player} from '../../interfaces/player';
+import {PlayerService, PlayerTableHeader} from '../../services/player-service';
 import {take} from 'rxjs/operators';
-import {TeamService} from '../services/team.service';
+import {TeamService} from '../../services/team.service';
 
 @Component({
   selector: 'app-player-table',

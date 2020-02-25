@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Team} from '../interfaces/team';
-import {Countries} from '../interfaces/player';
+import {Team} from '../../interfaces/team';
+import {Countries} from '../../interfaces/player';
 import {NgForm} from '@angular/forms';
-import {TeamService} from '../services/team.service';
+import {TeamService} from '../../services/team.service';
 
 @Component({
   selector: 'app-team-dialog',
@@ -30,11 +30,11 @@ export class TeamDialogComponent implements OnInit {
     window.location.replace('#');
   }
 
-  editTeam(teamFromValue) {
+  newTeam(teamFromValue) {
     const key = this.teamService.addTeam(teamFromValue).key;
   }
 
-  newTeam(teamFromValue) {
+  editTeam(teamFromValue) {
     const teamFromValueWithKey = { ...teamFromValue, $key: this.team.$key};
     this.teamService.editTeam(teamFromValueWithKey);
   }
