@@ -4,6 +4,8 @@ import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
+export const PlayerTableHeader = ['Name', 'LastName', 'Position', 'Weight', 'Height', 'Nationality', 'LeftFooted'];
+
 @Injectable({
   providedIn: 'root'
 })

@@ -4,6 +4,8 @@ import {Team} from '../interfaces/team';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
+export const TeamTableHeadres = ['Name', 'Country', 'Players'];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +17,7 @@ export class TeamService {
     this.teamDB = this.db.list('/teams', ref => ref.orderByChild('name'));
   }
 
-  getPlayers(): Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.teamDB.snapshotChanges().pipe(
       map(changes => {
         return changes.map(c => ({$key: c.payload.key, ...c.payload.val()}));
@@ -23,16 +25,16 @@ export class TeamService {
     );
   }
 
-  addPlayer(team: Team) {
+  addTeam(team: Team) {
     return this.teamDB.push(team);
   }
 
-  deletePlayer(id: string) {
+  deleteTeam(id: string) {
     // this.playersDB.remove(id);
     this.db.list('/teams').remove(id);
   }
 
-  editPlayer(newTeamData) {
+  editTeam(newTeamData) {
     const $key = newTeamData.$key;
     delete(newTeamData.$key);
     this.db.list('/teams').update($key, newTeamData);
