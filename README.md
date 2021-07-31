@@ -4,7 +4,10 @@ Proyetco angular e implentación con firebase.
 
 # AppEquipoFutbol
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+
+# Requirements
+- Node: 14.15.0
 
 ## Development server
 
