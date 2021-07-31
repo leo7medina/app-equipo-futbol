@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Team} from '../interfaces/team';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -23,6 +23,13 @@ export class TeamService {
         return changes.map(c => ({$key: c.payload.key, ...c.payload.val()}));
       })
     );
+    // return this.teamDB.snapshotChanges().pipe(map(this.documentToDomainObject));
+  }
+
+  documentToDomainObject = _ => {
+    const object = _.payload.doc.data();
+    object.id = _.payload.doc.id;
+    return object;
   }
 
   addTeam(team: Team) {
