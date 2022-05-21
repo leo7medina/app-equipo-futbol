@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Team} from '../interfaces/team';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
 
 export const TeamTableHeadres = ['Name', 'Country', 'Players'];
 

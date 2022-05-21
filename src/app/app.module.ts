@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {PlayerService} from './services/player-service';
 import {TeamService} from './services/team.service';
 import { TeamTableComponent } from './components/team-table/team-table.component';
@@ -13,6 +11,11 @@ import { PlayerTableComponent } from './components/player-table/player-table.com
 import { PlayerDialogComponent } from './components/player-dialog/player-dialog.component';
 import {FormsModule} from '@angular/forms';
 import { TeamDialogComponent } from './components/team-dialog/team-dialog.component';
+import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import {AngularFireModule} from '@angular/fire/compat';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { TeamDialogComponent } from './components/team-dialog/team-dialog.compon
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AppRoutingModule

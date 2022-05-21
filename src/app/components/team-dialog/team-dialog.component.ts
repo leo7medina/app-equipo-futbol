@@ -3,6 +3,7 @@ import {Team} from '../../interfaces/team';
 import {Countries} from '../../interfaces/player';
 import {NgForm} from '@angular/forms';
 import {TeamService} from '../../services/team.service';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-team-dialog',
@@ -15,9 +16,13 @@ export class TeamDialogComponent implements OnInit {
   @Output() closeDialog: EventEmitter<boolean> = new EventEmitter();
   public countries = Object.keys(Countries).map(key => ({label: key, key: Countries[key] }));
 
-  constructor(private teamService: TeamService) { }
+  constructor(
+    private teamService: TeamService,
+    private activeModal: NgbActiveModal
+  ) { }
 
   ngOnInit() {
+    console.log('Init TeamDialogComponent');
   }
 
   onSubmit(teamForm: NgForm) {
@@ -27,11 +32,12 @@ export class TeamDialogComponent implements OnInit {
     } else {
       this.newTeam(teamFormValue);
     }
-    window.location.replace('#');
+    // window.location.replace('#');
+    this.onClose();
   }
 
   newTeam(teamFromValue) {
-    const key = this.teamService.addTeam(teamFromValue).key;
+    this.teamService.addTeam(teamFromValue);
   }
 
   editTeam(teamFromValue) {
@@ -40,6 +46,7 @@ export class TeamDialogComponent implements OnInit {
   }
 
   onClose() {
+    this.activeModal.close('Modal Closed');
     this.closeDialog.emit(true);
   }
 }

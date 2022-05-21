@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 body {
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
+  #background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  #background: linear-gradient(to right, #25c481, #25b7c4);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,207,177,0.9248074229691877) 46%, rgba(184,0,255,1) 100%);
 }
 section {
   margin: 50px;
@@ -198,10 +200,10 @@ a {
 .container {
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 70px;
 }
 
-.btn {
+/*.btn {
   background-color: #fff;
   padding: 1em 1.5em;
   border-radius: 3px;
@@ -209,7 +211,7 @@ a {
   i {
     padding-right: 0.3em;
   }
-}
+}*/
 
 ::-webkit-scrollbar {
   width: 6px;

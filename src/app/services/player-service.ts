@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Player} from '../interfaces/player';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
 
 export const PlayerTableHeader = ['Name', 'LastName', 'Position', 'Weight', 'Height', 'Nationality', 'LeftFooted'];
 
