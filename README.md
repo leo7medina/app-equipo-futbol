@@ -2,6 +2,8 @@
 Fundamentos Tyscript.
 Proyecto angular e implentación con firebase.
 
+ESTADO: FINALIZADO
+
 ### Requerimientos
 - NodeJS: ^18.2.0
 - NPM: ^8.10.0
